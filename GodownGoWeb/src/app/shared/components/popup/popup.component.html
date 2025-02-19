@@ -1,0 +1,13 @@
+<div class="popup">
+  <div class="popup-container">
+    <h2>{{ title }}</h2>
+    <button class="close-btn" (click)="onClose()">X</button>
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+      <div *ngFor="let field of fields">
+        <label [for]="field.name">{{ field.label }}</label>
+        <input [id]="field.name" [formControlName]="field.name" [type]="field.type">
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
