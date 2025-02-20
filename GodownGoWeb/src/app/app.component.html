@@ -1,7 +1,8 @@
 <main>
   <g-header (openPopup)="showPopup()">
   </g-header>
-  <g-popup  *ngIf="isPopupVisible" [title]="popupTitle" [fields]="popupFields" (close)="hidePopup()"></g-popup>
+  <g-popup  *ngIf="isPopupVisible" [title]="popupTitle" [fields]="popupFields" (close)="hidePopup($event)"></g-popup>
   <section class="content">
+    <g-list [data]="listData"></g-list>
   </section>
 </main>

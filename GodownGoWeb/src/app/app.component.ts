@@ -7,12 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-
+  listData:any;
   isPopupVisible = false;
   popupTitle = 'Create New Item';
   popupFields = [
-    { label: 'Field 1', name: 'field1', type: 'text' },
-    { label: 'Field 2', name: 'field2', type: 'text' }
+    { label: 'Name', name: 'name', type: 'text' },
+    { label: 'Age', name: 'age', type: 'text' },
+    { label: 'Occupation', name: 'occupation', type: 'text' },
     // Add more fields as needed
   ];
 
@@ -20,7 +21,10 @@ export class AppComponent {
     this.isPopupVisible = true;
   }
 
-  hidePopup() {
+  hidePopup(data:any) {
+    console.log("hidePopup",data)
+    this.listData = data;
+    console.log("hidePopup list",this.listData)
     this.isPopupVisible = false;
   }
 }

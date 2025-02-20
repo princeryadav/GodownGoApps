@@ -10,7 +10,7 @@ export class PopupComponent implements OnInit {
 
   @Input() title: string;
   @Input() fields: Array<{ label: string, name: string, type: string }>;
-  @Output() close = new EventEmitter<void>();
+  @Output() close = new EventEmitter<any>();
   createForm: FormGroup;
 
   constructor(private fb: FormBuilder) {}
@@ -25,9 +25,10 @@ export class PopupComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.createForm.value);
+    
+    console.log("OnSubmit",this.createForm.value);
     // Add your form submission logic here
-    this.close.emit();
+    this.close.emit(this.createForm.value);
   }
   onClose(){
     this.close.emit();
